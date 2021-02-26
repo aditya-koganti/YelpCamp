@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>todo app</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheet/todo.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+</head>
+
+<body>
+    <a href="/camps" id="camp-icon"><i class="fa fa-campground"></i></a>
+    <div class="container">
+        <h1>to-do list <i class="fa fa-plus"></i></h1>
+        <input type="text" name="newtodo" placeholder="Add New Todo" form="form-post" >
+        <ul>
+            <% user.todos.forEach(function(todo){ %>
+                <li><button name="tododelid" value="<%= todo._id %>" form="form-delete"><i class="fa fa-trash"></i></button><%= todo.todo %> </li>
+            <% }) %>
+        </ul>
+        
+    </div>
+    
+    <form action="/notes" style="display: none;" method="POST" id="form-post">
+        <input type="submit">
+    </form>
+
+    <form action="/notes?_method=DELETE" style="display: none;" method="POST" id="form-delete">
+        <input type="submit">
+    </form>
+
+    <script src="/javascript/noteLogic.js"></script> 
+    <script>
+        
+    </script>
+</body>
+
+</html>
